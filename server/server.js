@@ -34,12 +34,14 @@ app.get('/image/circle-1', function (req, res) {
 })
 
 app.get('/image/circle-2', function (req, res) {
-  res.sendFile(process.cwd() + '/pages/source/pics/1.jpg');
+  res.sendFile(process.cwd() + '/pages/source/pics/2.gif');
 })
 
 app.get('/image/circle-3', function (req, res) {
   res.sendFile(process.cwd() + '/pages/source/pics/map.jpg');
 })
+
+//sources
 
 //app.get('/bootstrap/dist/css/bootstrap.min.css', function (req, res) {
 //    res.sendFile(process.cwd() + '/pages/bootstrap/dist/css/bootstrap.min.css');
@@ -64,6 +66,8 @@ app.get('/bootstrap/assets/js/ie10-viewport-bug-workaround.js', function (req, r
 app.get('/css/carousel.css', function (req, res) {
     res.sendFile(process.cwd() + '/pages/css/carousel.css');
 })
+
+//
 
 
 var server = app.listen(8081, function () {
