@@ -18,11 +18,11 @@ app.get('/source/logo/favicon.ico', function (req, res) {
 
 //images 
 app.get('/image/first-slide', function (req, res) {
-  res.sendFile(process.cwd() + '/pages/source/pics/1.jpg');
+  res.sendFile(process.cwd() + '/pages/source/pics/chicago_skyline.gif');
 })
 
 app.get('/image/second-slide', function (req, res) {
-  res.sendFile(process.cwd() + '/pages/source/pics/1.jpg');
+  res.sendFile(process.cwd() + '/pages/source/pics/chicago2.gif');
 })
 
 app.get('/image/third-slide', function (req, res) {
