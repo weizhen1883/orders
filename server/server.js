@@ -1,6 +1,8 @@
 var express = require('express');
 var http = require('http');
+var url = require('url');
 var path = require('path');
+var qs = require('querystring');
 var bodyParser = require('body-parser');
 var Firebase = require("firebase");
 var firebase_ref = new Firebase("https://55-bento.firebaseio.com");
@@ -73,6 +75,17 @@ app.get('/css/carousel.css', function (req, res) {
     res.sendFile(process.cwd() + '/pages/css/carousel.css');
 })
 
+app.get('/js/index.js', function (req, res) {
+    res.sendFile(process.cwd() + '/pages/js/index.js');
+})
+
+app.get('/test', function (req, res) {
+    var queryVars = {'id':'001', 'name':'zhenw'};
+    var queryString = qs.stringify(queryVars);
+    var fullUrl = req.protocol + '://' + req.get('host') + '?' + queryString;
+    res.send(fullUrl);
+})
+
 //sign up
 app.post('/user/create-account', function (req, res) {
     var full_name = req.body.user_full_name;
@@ -95,13 +108,36 @@ app.post('/user/create-account', function (req, res) {
             phone: phone_number,
             email: email
           });
-          res.send(userData.uid);
+          var queryVars = {'id':userData.uid};
+          var queryString = qs.stringify(queryVars);
+          var newUrl = req.protocol + '://' + req.get('host') + '?' + queryString;
+          res.redirect(newUrl);
         }
       });
+    } else {
+      res.send("password is not match");
     };
     //res.send(full_name + " " + phone_number + " " + email + " " + password + " " + confirm_password);
 })
 
+//login
+app.post('/user/login', function (req, res) {
+  var email = req.body.login_email;
+  var password = req.body.login_password;
+  firebase_ref.authWithPassword({
+    email    : email,
+    password : password
+  }, function(error, authData) {
+    if (error) {
+      res.send(error);
+    } else {
+      var queryVars = {'id':authData.uid};
+      var queryString = qs.stringify(queryVars);
+      var newUrl = req.protocol + '://' + req.get('host') + '?' + queryString;
+      res.redirect(newUrl);
+    }
+  });
+})
 
 
 var server = app.listen(8081, function () {
