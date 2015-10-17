@@ -14,44 +14,162 @@
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   	<!-- Optional theme -->
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Wire+One">
 	
-    <link rel='stylesheet' href='/stylesheets/index.css' />
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="/stylesheets/magister/magister.css">
   </head>
 
-  <body ng-app="angularApp">
+  <body class="theme-invert text-shadows" ng-app="angularApp">
 
-    <div class="site-wrapper">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </nav>
-            </div>
+    <nav class="mainmenu">
+      <div class="container">
+        <div class="dropdown">
+          <button type="button" class="navbar-toggle" data-toggle="dropdown"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <!-- <a data-toggle="dropdown" href="#">Dropdown trigger</a> -->
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li><a href="#head" class="active">Home</a></li>
+            <li><a href="#about">About me</a></li>
+            <li><a href="#signin">Sign in</a></li>
+            <li><a href="#themes">Themes</a></li>
+            <li><a href="#contact">Get in touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Main (Home) section -->
+    <section class="section" id="head">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center"> 
+
+            <!-- Site Title, your name, HELLO msg, etc. -->
+            <h1 class="title">Fifty Five Bento</h1>
+            <h2 class="subtitle">Free html5 template by GetTemplate</h2>
+
+            <!-- Short introductory (optional) -->
+            <h3 class="tagline">
+              Potentially, the best place to tell people why they are here.<br>
+              So, this is a demo page built to showcase the beauty of the template.
+            </h3>
+            
+            <!-- Nice place to describe your site in a sentence or two -->
+            <p><a href="#" class="btn btn-default btn-lg">Sign in now</a></p>
+      
+          </div> <!-- /col -->
+        </div> <!-- /row -->
+      
+      </div>
+    </section>
+
+    <section class="section" id="signin">
+      <div class="container">
+        <h2 class="text-center title">Sign In</h2>
+      </div>
+    </section>
+
+    <!-- Second (About) section -->
+    <section class="section" id="about">
+      <div class="container">
+      
+        <h2 class="text-center title">About me</h2>
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-2">    
+            <h5><strong>Where's my lorem ipsum?<br></strong></h5>
+            <p>Well, here it is: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, ullam, ducimus, eaque, ex autem est dolore illo similique quasi unde sint rerum magnam quod amet iste dolorem ad laudantium molestias enim quibusdam inventore totam fugit eum iusto ratione alias deleniti suscipit modi quis nostrum veniam fugiat debitis officiis impedit ipsum natus ipsa. Doloremque, id, at, corporis, libero laborum architecto mollitia molestiae maxime aut deserunt sed perspiciatis quibusdam praesentium consectetur in sint impedit voluptates! Deleniti, sequi voluptate recusandae facere nostrum?</p>    
           </div>
-
-          <div class="inner cover">
-            <h1 class="cover-heading">Cover your page.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">Learn more</a>
-            </p>
-          </div>
-
-          <div class="mastfoot">
-            <div class="inner">
-              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            </div>
+          <div class="col-sm-4">
+            <h5><strong>More, more lipsum!<br></strong></h5>    
+            <p>Tempore, eos, voluptatem minus commodi error aut eaque neque consequuntur optio nesciunt quod quibusdam. Ipsum, voluptatibus, totam, modi perspiciatis repudiandae odio ad possimus molestias culpa optio eaque itaque dicta quod cupiditate reiciendis illo illum aspernatur ducimus praesentium quae porro alias repellat quasi cum fugiat accusamus molestiae exercitationem amet fugit sint eligendi omnis adipisci corrupti. Aspernatur.</p>    
+            <h5><strong>Author links<br></strong></h5>    
+            <p><a href="http://be.net/pozhilov9409">Behance</a> / <a href="https://twitter.com/serggg">Twitter</a> / <a href="http://linkedin.com/pozhilov">LinkedIn</a> / <a href="https://www.facebook.com/pozhilov">Facebook</a></p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Third (Works) section -->
+    <section class="section" id="themes">
+      <div class="container">
+      
+        <h2 class="text-center title">More Themes</h2>
+        <p class="lead text-center">
+          Huge thank you to all people who publish<br>
+          their photos at <a href="http://unsplash.com">Unsplash</a>, thank you guys!
+        </p>
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-2">
+            <div class="thumbnail">
+              <img src="/images/source/sshot1.jpg" alt="">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="thumbnail">
+              <img src="/images/source/sshot4.jpg" alt="">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-sm-offset-2">
+            <div class="thumbnail">
+              <img src="/images/source/sshot5.jpg" alt="">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="thumbnail">
+              <img src="/images/source/sshot3.jpg" alt="">
+              <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>    
+
+    <!-- Fourth (Contact) section -->
+    <section class="section" id="contact">
+      <div class="container">
+      
+        <h2 class="text-center title">Get in touch</h2>
+
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+            <p class="lead">Have a question about this template, or want to suggest a new feature?</p>
+            <p>Feel free to email me, or drop me a line in Twitter!</p>
+            <p><b>gt@gettemplate.com</b><br><br></p>
+            <ul class="list-inline list-social">
+              <li><a href="https://twitter.com/serggg" class="btn btn-link"><i class="fa fa-twitter fa-fw"></i> Twitter</a></li>
+              <li><a href="https://github.com/pozhilov" class="btn btn-link"><i class="fa fa-github fa-fw"></i> Github</a></li>
+              <li><a href="http://linkedin/in/pozhilov" class="btn btn-link"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
 
 
@@ -62,6 +180,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="/javascripts/magister/modernizr.custom.72241.js"></script>
+    <!-- Custom template scripts -->
+    <script src="/javascripts/magister/magister.js"></script>
   	<!-- Lastest version of angular.js -->
   	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
   	<!-- include the angular js files -->
