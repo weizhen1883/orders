@@ -21,6 +21,7 @@
     <!-- Custom styles -->
     <link rel="stylesheet" href="/stylesheets/magister/magister.css">
     <link rel="stylesheet" href="/stylesheets/signin.css">
+    <link rel="stylesheet" href="/stylesheets/carousel.css">
   </head>
 
   <body class="theme-invert text-shadows" ng-app="angularApp">
@@ -80,35 +81,13 @@
             
             <!-- Nice place to describe your site in a sentence or two -->
             <h3 class="tagline section_active_button">
-              <a href="#signup" class="btn btn-default btn-lg login-action-hidden">Sign Up Today</a>
-              <a href="#order" class="btn btn-default btn-lg login-action hidden">Start Your Order</a>
+              <a href="#signup" class="btn btn-default btn-lg login-action-hidden hidden">Sign Up Today</a>
+              <a href="#order_step1" class="btn btn-default btn-lg login-action">Start Your Order</a>
             </p>
       
           </div> <!-- /col -->
         </div> <!-- /row -->
       
-      </div>
-    </section>
-
-    <!-- Sign In section -->
-    <section action="#" method="POST" class="section" id="signin">
-      <div class="container">
-        <h2 class="text-center title">Sign In</h2>
-        <form class="form-signin">
-          <label for="inputEmail" class="sr-only">Email address</label>
-          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-          <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          </div>
-          <p class="text-center">
-            <button class="btn btn btn-default btn-lg" type="submit">Sign in</button>
-            <a href="#head" class="btn btn-default btn-lg cancel">Cancel</a>
-          </p>
-        </form>
       </div>
     </section>
 
@@ -165,6 +144,31 @@
           </div> 
           <div class="col-md-4"></div>
         </div>
+      </div>
+    </section>
+
+    <!-- Order section 1 - Pickup location -->
+    <section class="section" id="order_step1">
+      <div class="container">
+        <h2 class="text-center title">Make Your Order</h2>
+        <h2 class="text-center subtitle">Step 1: Pickup your location</h2>
+
+        <div class="row featurette">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="row thumbnail">
+              <div class="col-sm-4">
+                <img class="featurette-image img-responsive center-block" src="/images/source/sshot1.jpg" alt="Generic placeholder image">
+              </div>
+              <div class="col-sm-7">
+                <h2>Oh yeah, it's that good.</h2>
+                <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
       </div>
     </section>
 
