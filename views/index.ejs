@@ -135,7 +135,7 @@
                 <div class="control-group">
                   <!-- Button -->
                   <p class="text-center">
-                    <button class="btn btn btn-default btn-lg" type="submit">Sign Up</button>
+                    <button class="btn btn-default btn-lg" type="submit">Sign Up</button>
                     <a href="#head" class="btn btn-default btn-lg cancel">Cancel</a>
                   </p>
                 </div>
@@ -151,22 +151,64 @@
     <section class="section" id="order_step1">
       <div class="container">
         <h2 class="text-center title">Make Your Order</h2>
-        <h2 class="text-center subtitle">Step 1: Pickup your location</h2>
+        <h2 class="text-center subtitle">Step 1: Select your route</h2>
 
-        <div class="row featurette">
+        <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-8">
             <div class="row thumbnail">
               <div class="col-sm-4">
-                <img class="featurette-image img-responsive center-block" src="/images/source/sshot1.jpg" alt="Generic placeholder image">
+                <img class="img-responsive" src="/images/source/sshot1.jpg" alt="Generic placeholder image">
               </div>
-              <div class="col-sm-7">
-                <h2>Oh yeah, it's that good.</h2>
-                <p>Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+              <div class="col-sm-8">
+                <h2>Route 1: UIC</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                <p align="right"><button id="route-1-selection" class="btn btn-default" type="button">Open</button></p>
+                <table class="table table-hover route-1-selection hidden">
+                  <tbody>
+                    <tr onclick="document.location = '#';">
+                      <td>John</td>
+                    </tr>
+                    <tr onclick="document.location = '#';">
+                      <td>Mary</td>
+                    </tr>
+                    <tr onclick="document.location = '#';">
+                      <td>July</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-          
+        </div>
+
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
+            <div class="row thumbnail">
+              <div class="col-sm-8">
+                <h2>Route 1: UIC</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
+                <p align="right"><button id="route-2-selection" class="btn btn-default" type="button">Open</button></p>
+                <table class="table table-hover route-2-selection hidden">
+                  <tbody>
+                    <tr onclick="document.location = '#';">
+                      <td>John</td>
+                    </tr>
+                    <tr onclick="document.location = '#';">
+                      <td>Mary</td>
+                    </tr>
+                    <tr onclick="document.location = '#';">
+                      <td>July</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-sm-4">
+                <img class="img-responsive" src="/images/source/sshot1.jpg" alt="Generic placeholder image">
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -287,5 +329,7 @@
   	<!-- include the angular js files -->
   	<script src="/javascripts/AngularJS/angularApp.js"></script>
   	<script src="/javascripts/AngularJS/controllers/NavController.js"></script>
+    <!-- include other js files -->
+    <script src="/javascripts/GUI/button.js"></script>
   </body>
 </html>
