@@ -32,14 +32,14 @@
           <!-- <a data-toggle="dropdown" href="#">Dropdown trigger</a> -->
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
             <li><a href="#head" class="active">Home</a></li>
-            <li><a href="#about">About me</a></li>
+            <li><a href="#about">About us</a></li>
             <li><a href="#themes">Themes</a></li>
             <li><a href="#contact">Get in touch</a></li>
           </ul>
         </div>
 
         <div style="float:right;">
-          <form action="#" method="POST" class="navbar-form navbar-right login-action-hidden hidden">
+          <form action="#" method="POST" class="navbar-form navbar-right login-action-hidden">
             <div class="form-group">
               <input type="text" name="login_email" placeholder="Email" class="form-control">
             </div>
@@ -48,19 +48,18 @@
             </div>
             <button type="submit" class="btn btn-default">Sign in</button>
           </form>
-          <div class="dropdown login-action">
-            <button type="button" class="btn btn-default btn-lg navbar-toggle" data-toggle="dropdown" id="user-button">Welcome, Zhen!</button>
+
+          <div class="dropdown login-action hidden">
+            <button type="button" class="btn btn-default navbar-toggle" data-toggle="dropdown" id="user-button"><span class="users-font">Welcome, Zhen!</span></button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About me</a></li>
-              <li><a href="#">Themes</a></li>
-              <li><button href="#" type="button" class="btn btn-default">Sign Out</button></li>
+              <li><a href="#account">Your Account</a></li>
+              <li><a href="#order">Your Orders</a></li>
+              <li><a href="#signout">Sign Out</a></li>
             </ul>
           </div>
         </div>
       </div>
     </nav>
-
 
     <!-- Main (Home) section -->
     <section class="section" id="head">
@@ -81,7 +80,8 @@
             
             <!-- Nice place to describe your site in a sentence or two -->
             <h3 class="tagline section_active_button">
-              <a href="#signup" class="btn btn-default btn-lg">Sign Up Today</a>
+              <a href="#signup" class="btn btn-default btn-lg login-action-hidden">Sign Up Today</a>
+              <a href="#order" class="btn btn-default btn-lg login-action hidden">Start Your Order</a>
             </p>
       
           </div> <!-- /col -->

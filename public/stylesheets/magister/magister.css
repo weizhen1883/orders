@@ -173,6 +173,11 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 	line-height:1.3em;
 }
 
+.users-font {
+	font-weight:bolder;
+	font-size:1em;
+}
+
 @media (max-width: 767px) {
 	.lead { 
 		font-size:1.3em;
