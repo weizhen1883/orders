@@ -28,5 +28,9 @@ angularApp.controller('SignInController', ['$scope', '$firebaseObject'
 			$(".login-action-hidden").removeClass("hidden");
 			$(".login-action").addClass("hidden");
 		};
+
+		$scope.register = function() {
+			console.log('User clicked register', $scope.user);
+		};
 	}
 ]);
