@@ -20,7 +20,6 @@
 	
     <!-- Custom styles -->
     <link rel="stylesheet" href="/stylesheets/magister/magister.css">
-    <link rel="stylesheet" href="/stylesheets/signin.css">
     <link rel="stylesheet" href="/stylesheets/carousel.css">
   </head>
 
@@ -39,13 +38,13 @@
           </ul>
         </div>
 
-        <div style="float:right;">
-          <form action="#" method="POST" class="navbar-form navbar-right login-action-hidden">
+        <div style="float:right;" ng-controller="SignInController">
+          <form class="navbar-form navbar-right login-action-hidden" name="SignInForm" ng-submit="signIn()">
             <div class="form-group">
-              <input type="text" name="login_email" placeholder="Email" class="form-control">
+              <input type="text" placeholder="Email" class="form-control" ng-model="user.email">
             </div>
             <div class="form-group">
-              <input type="password" name="login_password" placeholder="Password" class="form-control">
+              <input type="password" placeholder="Password" class="form-control"  ng-model="user.password">
             </div>
             <button type="submit" class="btn btn-default">Sign in</button>
           </form>
@@ -55,10 +54,11 @@
             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
               <li><a href="#account">Your Account</a></li>
               <li><a href="#order">Your Orders</a></li>
-              <li><a href="#signout">Sign Out</a></li>
+              <li><a href="#head" ng-click="signOut()">Sign Out</a></li>
             </ul>
           </div>
         </div>
+
       </div>
     </nav>
 
@@ -81,8 +81,8 @@
             
             <!-- Nice place to describe your site in a sentence or two -->
             <h3 class="tagline section_active_button">
-              <a href="#signup" class="btn btn-default btn-lg login-action-hidden hidden">Sign Up Today</a>
-              <a href="#order_step1" class="btn btn-default btn-lg login-action">Start Your Order</a>
+              <a href="#signup" class="btn btn-default btn-lg login-action-hidden">Sign Up Today</a>
+              <a href="#order_step1" class="btn btn-default btn-lg login-action hidden">Start Your Order</a>
             </h3>
       
           </div> <!-- /col -->
@@ -166,13 +166,13 @@
                 <p align="right"><button id="route-1-selection" class="btn btn-default" type="button">Open</button></p>
                 <table class="table table-hover route-1-selection hidden">
                   <tbody>
-                    <tr onclick="document.location = '#';">
+                    <tr onclick="document.location = '#order_step2';">
                       <td>John</td>
                     </tr>
-                    <tr onclick="document.location = '#';">
+                    <tr onclick="document.location = '#order_step2';">
                       <td>Mary</td>
                     </tr>
-                    <tr onclick="document.location = '#';">
+                    <tr onclick="document.location = '#order_step2';">
                       <td>July</td>
                     </tr>
                   </tbody>
@@ -192,13 +192,13 @@
                 <p align="right"><button id="route-2-selection" class="btn btn-default" type="button">Open</button></p>
                 <table class="table table-hover route-2-selection hidden">
                   <tbody>
-                    <tr onclick="document.location = '#';">
+                    <tr onclick="document.location = '#order_step2';">
                       <td>John</td>
                     </tr>
-                    <tr onclick="document.location = '#';">
+                    <tr onclick="document.location = '#order_step2';">
                       <td>Mary</td>
                     </tr>
-                    <tr onclick="document.location = '#';">
+                    <tr onclick="document.location = '#order_step2';">
                       <td>July</td>
                     </tr>
                   </tbody>
@@ -211,7 +211,7 @@
           </div>
         </div>
 
-        <p class="tagline text-center"><a href="#head" class="btn btn-default btn-lg cancel">Cancel</a></p>
+        <p class="tagline text-center"><a href="#head" id="order-cancel" class="btn btn-default btn-lg cancel">Cancel</a></p>
       </div>
     </section>
 
@@ -329,7 +329,14 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
   	<!-- include the angular js files -->
   	<script src="/javascripts/AngularJS/angularApp.js"></script>
-  	<script src="/javascripts/AngularJS/controllers/NavController.js"></script>
+    <!-- include the angular js controllers js files -->
+  	<script src="/javascripts/AngularJS/controllers/SignInController.js"></script>
+    <!-- include the angular js directives js files -->
+    <!-- include the angular js services js files -->
+    <!-- include the firebase angular library js files -->
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+    <!-- include the firebase js files -->
+    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
     <!-- include other js files -->
     <script src="/javascripts/GUI/button.js"></script>
   </body>

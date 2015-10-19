@@ -29,6 +29,19 @@ button.routeSelect.selectButton = function() {
 		}
 	});
 
+
+
+
+	$("#order-cancel").click(function() {
+		button.routeSelect.select1 = false;
+		$(".route-1-selection").addClass("hidden");
+		$("#route-1-selection").html("Open");
+
+		button.routeSelect.select2 = false;
+		$(".route-2-selection").addClass("hidden");
+		$("#route-2-selection").html("Open");	
+	});
+
 };
 
 $(document).ready(function() {

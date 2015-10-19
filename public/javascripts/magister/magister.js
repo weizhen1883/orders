@@ -43,5 +43,6 @@ jQuery(document).ready(function($) {
 			var new_section = $( $(current_item).attr('href') );
 			new_section.fadeIn( section_show_time );
 		});
-	});		
+	});	
+	
 });
