@@ -15,21 +15,21 @@ angularApp.controller('SignInController', ['$scope',
 			  if (error) {
 			    console.log("Login Failed!", error);
 			  } else {
-			    $(".login-action-hidden").addClass("hidden");
-			    $(".login-action").removeClass("hidden");
-
+			    $('.login-action-hidden').fadeOut(500, function() {
+			    	$('.login-action-hidden').addClass("hidden");
+			    	$('.login-action').fadeIn(500).removeClass('hidden');
+			    });
 			  }
 			});
 		};
 
 		$scope.signOut = function() {
 			ref.unauth();
-			$(".login-action-hidden").removeClass("hidden");
-			$(".login-action").addClass("hidden");
+			$('.login-action').fadeOut(500, function() {
+		    	$('.login-action').addClass("hidden");
+		    	$('.login-action-hidden').fadeIn(500).removeClass('hidden');
+		    });
 		};
-
-		$scope.register = function() {
-			console.log('User clicked register', $scope.user);
-		};
+		
 	}
 ]);

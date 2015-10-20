@@ -11,7 +11,7 @@ jQuery(document).ready(function($) {
 	// Switch section
 	$("a", '.mainmenu').click(function() 
 	{
-		if( ! $(this).hasClass('active') ) { 
+		if( ! $(this).hasClass('active') && $(this).attr('id') != "signout" ) { 
 			current_item = this;
 			// close all visible divs with the class of .section
 			$('.section:visible').fadeOut( section_hide_time, function() { 
@@ -35,7 +35,7 @@ jQuery(document).ready(function($) {
 		});
 	});
 
-	$('.cancel').click(function() 
+	$("a", '.signup').click(function() 
 	{
 		current_item = this;
 		// close all visible divs with the class of .section
@@ -45,4 +45,14 @@ jQuery(document).ready(function($) {
 		});
 	});	
 	
+	$('.cancel').click(function() 
+	{
+		current_item = this;
+		// close all visible divs with the class of .section
+		$('.section:visible').fadeOut( section_hide_time, function() {
+			var new_section = $( $(current_item).attr('href') );
+			new_section.fadeIn( section_show_time );
+		});
+	});
+
 });

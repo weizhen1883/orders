@@ -31,7 +31,7 @@
           <button type="button" class="navbar-toggle" data-toggle="dropdown"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
           <!-- <a data-toggle="dropdown" href="#">Dropdown trigger</a> -->
           <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-            <li><a href="#head" class="active">Home</a></li>
+            <li><a href="#head" class="active" id="mainmenu_head">Home</a></li>
             <li><a href="#about">About us</a></li>
             <li><a href="#themes">How it works</a></li>
             <li><a href="#contact">Get in touch</a></li>
@@ -54,7 +54,7 @@
             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
               <li><a href="#account">Your Account</a></li>
               <li><a href="#order">Your Orders</a></li>
-              <li><a href="#head" ng-click="signOut()">Sign Out</a></li>
+              <li><a href="#head" ng-click="signOut()" id="signout">Sign Out</a></li>
             </ul>
           </div>
         </div>
@@ -92,18 +92,26 @@
     </section>
 
     <!-- Sign Up section -->
-    <section action="#" method="POST" class="section" id="signup">
+    <section class="section" id="signup">
       <div class="container">
         <div class="row">
           <div class="col-md-4"></div>
-          <div class="col-md-4">
+          <div class="col-md-4" ng-controller="SignUpController">
             <h2 class="text-center title">Sign Up</h2>
-            <form class="form-horizontal" action="" method="POST">
+            <form class="form-horizontal" ng-submit="createUser()">
               <fieldset>
+                <div class="control-group">
+                  <label class="control-label font1" for="full_name">Full Name</label>
+                  <div class="controls">
+                    <input type="full_name" id="full_name" name="full_name" placeholder="" class="form-control input-lg" ng-model="user.full_name">
+                    <p class="font2">Please provide your full name</p>
+                  </div>
+                </div>
+
                 <div class="control-group">
                   <label class="control-label font1" for="email">E-mail</label>
                   <div class="controls">
-                    <input type="email" id="email" name="email" placeholder="" class="form-control input-lg">
+                    <input type="email" id="email" name="email" placeholder="" class="form-control input-lg" ng-model="user.email">
                     <p class="font2">Please provide your E-mail</p>
                   </div>
                 </div>
@@ -111,7 +119,7 @@
                 <div class="control-group">
                   <label class="control-label font1" for="phone">Phone Number</label>
                   <div class="controls">
-                    <input type="text" id="phone" name="phone" placeholder="" class="form-control input-lg">
+                    <input type="text" id="phone" name="phone" placeholder="" class="form-control input-lg" ng-model="user.phone">
                     <p class="font2">Please provide your phone number</p>
                   </div>
                 </div>
@@ -119,7 +127,7 @@
                 <div class="control-group">
                   <label class="control-label font1" for="password">Password</label>
                   <div class="controls">
-                    <input type="password" id="password" name="password" placeholder="" class="form-control input-lg">
+                    <input type="password" id="password" name="password" placeholder="" class="form-control input-lg" ng-model="user.password">
                     <p class="font2">Password should be at least 6 characters</p>
                   </div>
                 </div>
@@ -127,16 +135,16 @@
                 <div class="control-group">
                   <label class="control-label font1" for="password_confirm">Password (Confirm)</label>
                   <div class="controls">
-                    <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="form-control input-lg">
+                    <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="form-control input-lg" ng-model="user.confirm_password">
                     <p class="font2">Please confirm password</p>
                   </div>
                 </div>
              
                 <div class="control-group">
                   <!-- Button -->
-                  <p class="text-center">
+                  <p class="text-center signup">
                     <button class="btn btn-default btn-lg" type="submit">Sign Up</button>
-                    <a href="#head" class="btn btn-default btn-lg cancel">Cancel</a>
+                    <a href="#head" class="btn btn-default btn-lg">Cancel</a>
                   </p>
                 </div>
               </fieldset>
@@ -331,8 +339,10 @@
   	<script src="/javascripts/AngularJS/angularApp.js"></script>
     <!-- include the angular js controllers js files -->
   	<script src="/javascripts/AngularJS/controllers/SignInController.js"></script>
+    <script src="/javascripts/AngularJS/controllers/SignUpController.js"></script>
     <!-- include the angular js directives js files -->
     <!-- include the angular js services js files -->
+    <script src="/javascripts/AngularJS/services/SignUpService.js"></script>
     <!-- include the firebase angular library js files -->
     <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
     <!-- include the firebase js files -->
