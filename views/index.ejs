@@ -157,7 +157,7 @@
 
     <!-- Order section 1 - Pickup location -->
     <section class="section" id="order_step1">
-      <div class="container">
+      <div class="container" ng-controller="OrderController">
         <h2 class="text-center title">Make Your Order</h2>
         <h2 class="text-center subtitle">Step 1: Select your route</h2>
 
@@ -171,16 +171,19 @@
               <div class="col-sm-8">
                 <h2>Route 1: UIC</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque doloribus enim vitae nam cupiditate eius at explicabo eaque facere iste.</p>
-                <p align="right"><button id="route-1-selection" class="btn btn-default" type="button">Open</button></p>
+                <p align="right">
+                  <button id="route-1-selection" class="btn btn-default" type="button">Open</button>
+                  <button class="btn btn-default route-1-selection hidden" type="button">Open</button>
+                </p>
                 <table class="table table-hover route-1-selection hidden">
                   <tbody>
-                    <tr onclick="document.location = '#order_step2';">
+                    <tr ng-click="location_select('zoon1', 'location1')">
                       <td>John</td>
                     </tr>
-                    <tr onclick="document.location = '#order_step2';">
+                    <tr ng-click="entress_select('qing jao rou si')">
                       <td>Mary</td>
                     </tr>
-                    <tr onclick="document.location = '#order_step2';">
+                    <tr ng-click="sides_select('side1', 'side2')">
                       <td>July</td>
                     </tr>
                   </tbody>
@@ -340,6 +343,7 @@
     <!-- include the angular js controllers js files -->
   	<script src="/javascripts/AngularJS/controllers/SignInController.js"></script>
     <script src="/javascripts/AngularJS/controllers/SignUpController.js"></script>
+    <script src="/javascripts/AngularJS/controllers/OrderController.js"></script>
     <!-- include the angular js directives js files -->
     <!-- include the angular js services js files -->
     <script src="/javascripts/AngularJS/services/SignUpService.js"></script>
