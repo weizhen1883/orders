@@ -172,6 +172,22 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 	line-height:1.3em;
 }
 
+.menu-title {
+	font-family: 'Wire One', Helvetica, Arial, sans-serif;
+	font-weight:bold;
+	font-size:2.5em;
+}
+
+.menu-subtitle {
+	font-size:1.4em;
+	font-weight:normal;
+}
+
+.menu-price {
+	font-size: 2.0em;
+	font-weight: inherit;
+}
+
 .users-font {
 	font-weight:bolder;
 	font-size:1em;
@@ -274,7 +290,13 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 }
 .text-shadows .title,
 .text-shadows .subtitle,
-.text-shadows .tagline { 
+.text-shadows .tagline,
+.text-shadows .font1,
+.text-shadows .font2,
+.text-shadows .menu-title,
+.text-shadows .menu-subtitle,
+.text-shadows .menu-price,
+.text-shadows .users-font { 
 	text-shadow:0 2px 3px rgba(0,0,0,.4);
 }
 .text-shadows .mainmenu .dropdown-menu a { 
