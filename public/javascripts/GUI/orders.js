@@ -72,9 +72,7 @@ $(document).ready(function() {
 });
 
 $(document).on('click', '.entrees-submit', function() {
-	orders.entrees++;
 	$('#sides-tab').tab('show');
-	orders.check_order_made();
 	cuisineName = $(this).find(".name").html();
 	cuisineImage = $(this).find(".image").html();
 	cuisinePrice = $(this).find(".price").html();
@@ -82,4 +80,40 @@ $(document).on('click', '.entrees-submit', function() {
 	$('#select-entress-image').attr('src', cuisineImage);
 	$('#select-entress-name').html(cuisineName);
 	$('#select-entress-price').html(cuisinePrice);
+
+	orders.entrees++;
+	orders.check_order_made();
 });
+
+$(document).on('click', '.sides-submit', function() {
+	//console.log(orders.entrees);
+	cuisineName = $(this).find(".name").html();
+	cuisineImage = $(this).find(".image").html();
+	cuisinePrice = $(this).find(".price").html();
+	//console.log("name: " + cuisineName + " image_url: " + cuisineImage + " price: " + cuisinePrice + " sides: " + orders.sides);
+	console.log(orders.sides);
+	if (orders.sides < 1) {
+		$('#select-side1-image').attr('src', cuisineImage);
+		$('#select-side1-name').html(cuisineName);
+		$('.sides-submit').attr('href', '#staple');
+		console.log("side1");
+	} else if (orders.sides < 2) {
+		$('#select-side2-image').attr('src', cuisineImage);
+		$('#select-side2-name').html(cuisineName);
+		$('.sides-submit').attr('href', '#sides');
+		$('#staples-tab').tab('show');
+		console.log("side2");
+	}
+	
+	orders.sides++;
+	orders.check_order_made();
+});
+
+
+
+
+
+
+
+
+
