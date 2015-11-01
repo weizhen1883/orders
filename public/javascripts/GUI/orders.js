@@ -32,6 +32,7 @@ orders.buttons.select = function() {
 	});
 
 	$('.sides-submit').click(function() {
+		console.log(orders.entrees);
 		orders.sides++;
 		cuisineName = $(this).find(".name").html();
 		cuisineImage = $(this).find(".image").html();
@@ -68,4 +69,17 @@ orders.buttons.select = function() {
 
 $(document).ready(function() {
 	orders.buttons.select();
+});
+
+$(document).on('click', '.entrees-submit', function() {
+	orders.entrees++;
+	$('#sides-tab').tab('show');
+	orders.check_order_made();
+	cuisineName = $(this).find(".name").html();
+	cuisineImage = $(this).find(".image").html();
+	cuisinePrice = $(this).find(".price").html();
+	console.log("name: " + cuisineName + " image_url: " + cuisineImage + " price: " + cuisinePrice);
+	$('#select-entress-image').attr('src', cuisineImage);
+	$('#select-entress-name').html(cuisineName);
+	$('#select-entress-price').html(cuisinePrice);
 });
