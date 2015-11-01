@@ -76,7 +76,7 @@ $(document).on('click', '.entrees-submit', function() {
 	cuisineName = $(this).find(".name").html();
 	cuisineImage = $(this).find(".image").html();
 	cuisinePrice = $(this).find(".price").html();
-	console.log("name: " + cuisineName + " image_url: " + cuisineImage + " price: " + cuisinePrice);
+	//console.log("name: " + cuisineName + " image_url: " + cuisineImage + " price: " + cuisinePrice);
 	$('#select-entress-image').attr('src', cuisineImage);
 	$('#select-entress-name').html(cuisineName);
 	$('#select-entress-price').html(cuisinePrice);
@@ -106,6 +106,17 @@ $(document).on('click', '.sides-submit', function() {
 	}
 	
 	orders.sides++;
+	orders.check_order_made();
+});
+
+$(document).on('click', '.staple-submit', function() {
+	orders.staple++;
+	cuisineName = $(this).find(".name").html();
+	cuisineImage = $(this).find(".image").html();
+	cuisinePrice = $(this).find(".price").html();
+	//console.log("name: " + cuisineName + " image_url: " + cuisineImage + " price: " + cuisinePrice);
+	$('#select-staple-image').attr('src', cuisineImage);
+	$('#select-staple-name').html(cuisineName);
 	orders.check_order_made();
 });
 
