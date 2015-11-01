@@ -6,7 +6,7 @@ angularApp.controller('MenuController', ['$scope', function($scope) {
 			restrand: 'Dimming Garden',
 			cal: '1000 Cal',
 			price: 12.99,
-			id: 'entrees-submit',
+			className: 'entrees-submit',
 			href: '#sides'
 		},
 		{
@@ -15,7 +15,7 @@ angularApp.controller('MenuController', ['$scope', function($scope) {
 			restrand: 'Dimming Garden',
 			cal: '1200 Cal',
 			price: 18.99,
-			id: 'entrees-submit',
+			className: 'entrees-submit',
 			href: '#sides'
 		},
 		{
@@ -24,7 +24,7 @@ angularApp.controller('MenuController', ['$scope', function($scope) {
 			restrand: 'Dimming Garden',
 			cal: '900 Cal',
 			price: 10.99,
-			id: 'entrees-submit',
+			className: 'entrees-submit',
 			href: '#sides'
 		},
 		{
@@ -33,7 +33,7 @@ angularApp.controller('MenuController', ['$scope', function($scope) {
 			restrand: 'Dimming Garden',
 			cal: '1000 Cal',
 			price: 14.99,
-			id: 'entrees-submit',
+			className: 'entrees-submit',
 			href: '#sides'
 		},
 		{
@@ -42,7 +42,7 @@ angularApp.controller('MenuController', ['$scope', function($scope) {
 			restrand: 'Dimming Garden',
 			cal: '950 Cal',
 			price: 9.99,
-			id: 'entrees-submit',
+			className: 'entrees-submit',
 			href: '#sides'
 		},
 		{
@@ -51,7 +51,7 @@ angularApp.controller('MenuController', ['$scope', function($scope) {
 			restrand: 'Dimming Garden',
 			cal: '800 Cal',
 			price: 11.99,
-			id: 'entrees-submit',
+			className: 'entrees-submit',
 			href: '#sides'
 		}
 	];
@@ -63,7 +63,7 @@ angularApp.controller('MenuController', ['$scope', function($scope) {
 			restrand: '',
 			cal: '1000 Cal',
 			price: 12.99,
-			id: 'sides-submit',
+			className: 'sides-submit',
 			href: '#sides'
 		},
 		{
@@ -72,7 +72,7 @@ angularApp.controller('MenuController', ['$scope', function($scope) {
 			restrand: '',
 			cal: '1200 Cal',
 			price: 18.99,
-			id: 'sides-submit',
+			className: 'sides-submit',
 			href: '#sides'
 		},
 		{
@@ -81,7 +81,7 @@ angularApp.controller('MenuController', ['$scope', function($scope) {
 			restrand: '',
 			cal: '900 Cal',
 			price: 10.99,
-			id: 'sides-submit',
+			className: 'sides-submit',
 			href: '#sides'
 		}
 	];
@@ -93,7 +93,7 @@ angularApp.controller('MenuController', ['$scope', function($scope) {
 			restrand: 'Dimming Garden',
 			cal: '950 Cal',
 			price: 9.99,
-			id: 'staple-submit',
+			className: 'staple-submit',
 			href: '#staple'
 		},
 		{
@@ -102,7 +102,7 @@ angularApp.controller('MenuController', ['$scope', function($scope) {
 			restrand: 'Dimming Garden',
 			cal: '800 Cal',
 			price: 11.99,
-			id: 'staple-submit',
+			className: 'staple-submit',
 			href: '#staple'
 		}
 	];

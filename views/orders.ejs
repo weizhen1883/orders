@@ -100,38 +100,8 @@
 							    </div>
 						  	</div>
 						  	<div id="staple" class="tab-pane fade">
-						    	<div class="row thumbnail">
-							    	<div class="col-sm-4">
-							    		<img class="img-responsive" src="/images/menu_pics/hongshaoji.jpg" alt="Generic placeholder image">
-							    	</div>
-							    	<div class="col-sm-8">
-							    		<div class="row">
-							    			<div class="col-sm-6">
-							    				<a class="menu-title">Dongpo Pork</a>
-							    			</div>
-							    			<div clss="col-sm-6">
-							    			</div>
-							    		</div>
-							    		<div class="row">
-							    			<div class="col-sm-9"></div>
-							    			<div clss="col-sm-3">
-							    				<p class="menu-subtitle">1000 Cal</p>
-							    			</div>
-							    		</div>
-							    		<div class="row">
-							    			<div class="col-sm-9">
-							    				<p class="menu-price">$12.99</p>
-							    			</div>
-							    			<div class="col-sm-3">
-							    				<a id="staple-submit" type="button" class="btn btn-success staple-submit" data-toggle="tab" href="#staple">
-							    					Get It
-							    					<div class="hidden image">/images/menu_pics/zuozongji.jpg</div>
-							    					<div class="hidden name">Noodle</div>
-							    					<div class="hidden price">$12.99</div>
-							    				</a>
-							    			</div>
-							    		</div>
-							    	</div>
+						  		<div class="row thumbnail" ng-repeat="Item in staples">
+							    	<menu-item cuisine="Item"></menu-item>
 							    </div>
 						  	</div>
 						</div>
