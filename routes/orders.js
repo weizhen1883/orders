@@ -2,14 +2,6 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require("mongoose");
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-	//res.render('index', { title: 'FiftyFive' });
-	res.render('orders', {
-		title: 'FiftyFive'
-	});
-});
-
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
@@ -34,12 +26,12 @@ var menuSchema = new Schema({
 		type: ObjectId,
 	},
 	zone: {
-		type: Number,
+		type: String,
 		required: true
 	},
 	type: {
 		type: String,
-		required: true,
+		required: true
 	},
 	name: {
 		type: String,
@@ -54,7 +46,7 @@ var menuSchema = new Schema({
 		type: String,
 		required: true
 	},
-	cal: {
+	calorie: {
 		type: Number,
 		required: true
 	},
@@ -68,11 +60,152 @@ var Zone = mongoose.model('Zone', zoneSchema);
 
 var Menu = mongoose.model('Menu', menuSchema);
 
-router.post('/')
+/* GET home page. */
+router.get('/', function(req,res){
+	res.render('orders', {
+		title: 'FiftyFive'
+	});
+});
+
+router.post('/getMenu', function(req, res) {
+	if (!req.body.zone) {
+		return res.end(JSON.stringify({
+			success: false,
+			error: 'Missing argument zone.'
+		}));
+	}
+	var zoneName = req.body.zone;
+	Zone.find({
+		name: zoneName
+	}, function(err, zones) {
+		console.log(zones);
+		if (zones.length == 0) {
+			return res.end(JSON.stringify({
+				success: false,
+				error: "The given zone name can not be found in db"
+			}));
+		} else {
+			var zone = zones[0];
+			Menu.find({
+				zone: zone._id,
+			}, function(err, found_result) {
+				var menus = [];
+				for (var i in found_result) {
+					var menu = {
+						type: found_result[i].type,
+						name: found_result[i].name,
+						imgUrl: found_result[i].imgUrl,
+						restaurant: found_result[i].restaurant,
+						cal: found_result[i].cal,
+						price: found_result[i].price
+					};
+					menus.push(menu);
+				}
+				return res.end(JSON.stringify({
+					menus: menus
+				}));
+			});
+		}
+	});
+});
+
+router.post('/addMenu', function(req, res) {
+	if (!req.body.zone) {
+		return res.end(JSON.stringify({
+			success: false,
+			error: 'Missing argument zone.'
+		}));
+	}
+	if (!req.body.type) {
+		return res.end(JSON.stringify({
+			success: false,
+			error: 'Missing argument menu type.'
+		}));
+	}
+	if (!req.body.name) {
+		return res.end(JSON.stringify({
+			success: false,
+			error: 'Missing argument menu name.'
+		}));
+	}
+	if (!req.body.imgUrl) {
+		return res.end(JSON.stringify({
+			success: false,
+			error: 'Missing argument image url.'
+		}));
+	}
+	if (!req.body.cal) {
+		return res.end(JSON.stringify({
+			success: false,
+			error: 'Missing argument calorie.'
+		}));
+	}
+	if (!req.body.price) {
+		return res.end(JSON.stringify({
+			success: false,
+			error: 'Missing argument menu price.'
+		}));
+	}
+	if (!req.body.restaurant) {
+		return res.end(JSON.stringify({
+			success: false,
+			error: 'Missing argument menu restaurant.'
+		}));
+	}
+	var zoneName = req.body.zone;
+	var type = req.body.type;
+	var name = req.body.name;
+	var imgUrl = req.body.imgUrl;
+	var calorie = req.body.cal;
+	var price = req.body.price;
+	var restaurant = req.body.restaurant;
+
+	Zone.find({
+		name: zoneName
+	}, function(err, zones) {
+		if (zones.length == 0) {
+			return res.end(JSON.stringify({
+				success: false,
+				error: "The given zone name can not be found in db"
+			}));
+		} else {
+			var zone = zones[0];
+			Menu.find({
+				name: name
+			}, function(err, found_menus) {
+				if (err) throw err;
+				if (found_menus.length !== 0) {
+					return res.end(JSON.stringify({
+						success: false,
+						error: 'menu already exists'
+					}));
+				} else {
+					var newMenu = new Menu({
+						zone: zone._id,
+						name: name,
+						type: type,
+						imgUrl: imgUrl,
+						calorie: calorie,
+						price: price,
+						restaurant: restaurant
+					});
+					newMenu.save(function(err, result) {
+						if (err) return res.end(JSON.stringify({
+							success: false,
+							error: err
+						}));
+						console.log('Menu created with id ' + result._id + ' and name ' + result.name);
+						return res.end(JSON.stringify({
+							success: true
+						}));
+					});
+				}
+			});
+		}
+
+	});
+});
 
 
-router.get('/#step1', function(req, res, next) {
-
-})
 
 module.exports = router;
