@@ -46,4 +46,10 @@ button.routeSelect.selectButton = function() {
 
 $(document).ready(function() {
 	button.routeSelect.selectButton();
+
+	if ($.cookie('token')) {
+		$('.login-action-hidden').addClass("hidden");
+		$('.login-action').removeClass('hidden');
+		$("#displayName").html("Welcome " + $.cookie('name') + "!");
+	}
 });

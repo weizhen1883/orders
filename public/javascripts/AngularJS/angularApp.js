@@ -1,1 +1,1 @@
-var angularApp = angular.module('angularApp', ['firebase']);
+var angularApp = angular.module('angularApp', []);
