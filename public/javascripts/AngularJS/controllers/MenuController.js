@@ -1,4 +1,9 @@
-angularApp.controller('MenuController', ['$scope', function($scope) {
+angularApp.controller('MenuController', ['$scope', 'MenuItems', function($scope, MenuItems) {
+	MenuItems.success(function(data) { 
+	    $scope.newEntrees = data.entrees; 
+	    console.log($scope.newEntrees);
+	});
+
 	$scope.entrees = [
 		{
 			name: 'Dongpo Pork',

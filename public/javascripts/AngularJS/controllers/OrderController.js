@@ -1,7 +1,7 @@
 angularApp.controller('OrderController', ['$scope',
 	function($scope) {
 		$scope.order = {
-			zoon: '',
+			zone: '',
 			pickup_location: '',
 			orders: {
 				entress: '',
@@ -10,8 +10,8 @@ angularApp.controller('OrderController', ['$scope',
 			}
 		};
 
-		$scope.location_select = function(zoon, pickup_location) {
-			$scope.order.zoon = zoon;
+		$scope.location_select = function(zone, pickup_location) {
+			$scope.order.zone = zone;
 			$scope.order.pickup_location = pickup_location;
 			console.log($scope.order);
 		};
