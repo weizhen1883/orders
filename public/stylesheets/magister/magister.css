@@ -183,6 +183,11 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 	font-weight:normal;
 }
 
+.menu-subtitle-xs {
+	font-size:0.9em;
+	font-weight:normal;
+}
+
 .menu-price {
 	font-size: 2.0em;
 	font-weight: inherit;
@@ -296,6 +301,7 @@ a:hover, a:active { color:#fff; text-decoration: underline; }
 .text-shadows .menu-title,
 .text-shadows .menu-subtitle,
 .text-shadows .menu-price,
+.text-shadows .menu-subtitle-xs,
 .text-shadows .users-font { 
 	text-shadow:0 2px 3px rgba(0,0,0,.4);
 }

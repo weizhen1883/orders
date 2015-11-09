@@ -22,99 +22,97 @@
 	    <link rel="stylesheet" href="/stylesheets/order_box.css">
 	</head>
 
-	<body class="theme-invert text-shadows">
+	<body class="theme-invert text-shadows" ng-app="angularApp">
 		<section class="section" id="head">
 	     	<div class="container">
 	      		<!--<h2 class="text-center title">Make Your Order</h2>-->
         		<h2 class="text-center subtitle">Step 2: Build your bento</h2>
 				<div class="row thumbnail">
 					<div class="col-md-5" id="orders">
-						<img class="img-responsive" src="/images/source/sshot1.jpg" alt="Generic placeholder image">
+						<div class="row thumbnail entrees-order hidden" style="margin-top:50px;">
+							<div class="col-sm-5">
+								<img id="select-entress-image" class="img-responsive" src="" alt="">
+							</div>
+							<div class="col-sm-7">
+								<div class="row">
+					    			<div class="col-sm-6">
+					    				<p id="select-entress-name" class="menu-title"></p>
+					    			</div>
+					    			<div clss="col-sm-6">
+					    				<p id="select-entress-price" class="menu-price"></p>
+					    			</div>
+					    		</div>
+					    		<div class="row sides-order hidden">
+					    			<div class="col-sm-6 side1-order hidden">
+            							<div class="thumbnail">
+            								<img id="select-side1-image" src="" alt="">
+            								<div class="caption">
+								                <p id="select-side1-name" class="menu-subtitle-xs"></p>
+								            </div>
+            							</div>
+            						</div>
+            						<div class="col-sm-6 side2-order hidden">
+            							<div class="thumbnail">
+            								<img id="select-side2-image" src="" alt="">
+            								<div class="caption">
+								                <p id="select-side2-name" class="menu-subtitle-xs"></p>
+								            </div>
+            							</div>
+            						</div>
+					    		</div>
+					    		<div class="row">
+					    			<div class="col-sm-6 staple-order hidden">
+            							<div class="thumbnail">
+            								<img id="select-staple-image" src="" alt="">
+            								<div class="caption">
+								                <p id="select-staple-name" class="menu-subtitle-xs"></p>
+								            </div>
+            							</div>
+            						</div>
+            						<div class="col-sm-6 order-cal hidden">
+            							<div class="thumbnail">
+            								<div class="caption">
+								                <p id="entrees-cal" class="menu-subtitle-xs text-right"></p>
+								                <p id="side1-cal" class="menu-subtitle-xs text-right hidden"></p>
+								                <p id="side2-cal" class="menu-subtitle-xs text-right hidden"></p>
+								                <p id="staple-cal" class="menu-subtitle-xs text-right hidden"></p>
+								                <p id="total-cal" class="menu-subtitle-xs text-right"></p>
+								            </div>
+            							</div>
+            						</div>
+					    		</div>
+					    		<div class="row">
+					    			<div class="col-sm-6">
+					    				<a id="pay-submit" type="button" class="btn btn-info disabled" href="">Pay Now</a>
+					    			</div>
+					    			<div class="col-sm-6">
+					    				<a id="add-to-cart" type="button" class="btn btn-warning disabled" href="">Add to Cart</a>
+					    			</div>
+					    		</div>
+							</div>
+						</div>
 					</div>
 					<div class="col-md-7" id="menus">
 						<ul class="nav nav-tabs">
-						  <li class="active"><a data-toggle="tab" href="#entrees">Entrees</a></li>
-						  <li><a data-toggle="tab" href="#sides">Sides</a></li>
-						  <li><a data-toggle="tab" href="#staple">Staples</a></li>
+						  <li id="entrees-tab" class="active"><a data-toggle="tab" href="#entrees">Entrees</a></li>
+						  <li id="sides-tab"><a data-toggle="tab" href="#sides">Sides</a></li>
+						  <li id="staples-tab"><a data-toggle="tab" href="#staple">Staples</a></li>
 						</ul>
 
-						<div class="tab-content">
+						<div class="tab-content" ng-controller="MenuController">
 						  	<div id="entrees" class="tab-pane fade in active">
-							    <div class="row thumbnail">
-							    	<div class="col-sm-4">
-							    		<img class="img-responsive" src="/images/menu_pics/dongporou.jpg" alt="Generic placeholder image">
-							    	</div>
-							    	<div class="col-sm-8">
-							    		<div class="row">
-							    			<div class="col-sm-6">
-							    				<a class="menu-title">Dongpo Pork</a>
-							    			</div>
-							    			<div clss="col-sm-6">
-							    			</div>
-							    		</div>
-							    		<div class="row">
-							    			<div class="col-sm-9">
-							    				<p class="menu-subtitle">Dimming Garden</p>
-							    			</div>
-							    			<div clss="col-sm-3">
-							    				<p class="menu-subtitle">1000 Cal</p>
-							    			</div>
-							    		</div>
-							    		<div class="row">
-							    			<div class="col-sm-8">
-							    				<p class="menu-price">$12.99</p>
-							    			</div>
-							    			<div class="col-sm-4">
-							    				<a type="button" class="btn btn-success btn-lg" href="">Get It</a>
-							    			</div>
-							    		</div>
-							    	</div>
-							    </div>
-							    <div class="row thumbnail">
-							    	<div class="col-sm-4">
-							    		<img class="img-responsive" src="/images/menu_pics/kaoya.jpg" alt="Generic placeholder image">
-							    	</div>
-							    	<div class="col-sm-8"></div>
-							    </div>
-							    <div class="row thumbnail">
-							    	<div class="col-sm-4">
-							    		<img class="img-responsive" src="/images/menu_pics/mapuodoufu.jpg" alt="Generic placeholder image">
-							    	</div>
-							    	<div class="col-sm-8"></div>
-							    </div>
-							    <div class="row thumbnail">
-							    	<div class="col-sm-4">
-							    		<img class="img-responsive" src="/images/menu_pics/yangpai.jpg" alt="Generic placeholder image">
-							    	</div>
-							    	<div class="col-sm-8"></div>
-							    </div>
-							    <div class="row thumbnail">
-							    	<div class="col-sm-4">
-							    		<img class="img-responsive" src="/images/menu_pics/zuozongji.jpg" alt="Generic placeholder image">
-							    	</div>
-							    	<div class="col-sm-8"></div>
-							    </div>
-							    <div class="row thumbnail">
-							    	<div class="col-sm-4">
-							    		<img class="img-responsive" src="/images/menu_pics/hongshaoji.jpg" alt="Generic placeholder image">
-							    	</div>
-							    	<div class="col-sm-8"></div>
+						  		<div class="row thumbnail" ng-repeat="Item in entrees">
+							    	<menu-item cuisine="Item"></menu-item>
 							    </div>
 						  	</div>
 						  	<div id="sides" class="tab-pane fade">
-						    	<div class="row thumbnail">
-							    	<div class="col-sm-4">
-							    		<img class="img-responsive" src="/images/menu_pics/hongshaoji.jpg" alt="Generic placeholder image">
-							    	</div>
-							    	<div class="col-sm-8"></div>
+						  		<div class="row thumbnail" ng-repeat="Item in sides">
+							    	<menu-item cuisine="Item"></menu-item>
 							    </div>
 						  	</div>
 						  	<div id="staple" class="tab-pane fade">
-						    	<div class="row thumbnail">
-							    	<div class="col-sm-4">
-							    		<img class="img-responsive" src="/images/menu_pics/hongshaoji.jpg" alt="Generic placeholder image">
-							    	</div>
-							    	<div class="col-sm-8"></div>
+						  		<div class="row thumbnail" ng-repeat="Item in staples">
+							    	<menu-item cuisine="Item"></menu-item>
 							    </div>
 						  	</div>
 						</div>
@@ -141,13 +139,15 @@
 	  	<!-- include the angular js files -->
 	  	<script src="/javascripts/AngularJS/angularApp.js"></script>
 	    <!-- include the angular js controllers js files -->
-	    <script src="/javascripts/AngularJS/controllers/OrderController.js"></script>
+	    <script src="/javascripts/AngularJS/controllers/MenuController.js"></script>
 	    <!-- include the angular js directives js files -->
+	    <script src="/javascripts/AngularJS/directives/MenuDirective.js"></script>
 	    <!-- include the angular js services js files -->
 	    <!-- include the firebase angular library js files -->
 	    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
 	    <!-- include the firebase js files -->
 	    <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
 	    <!-- include other js files -->
+	    <script src="/javascripts/GUI/orders.js"></script>
 	</body>
 </html>

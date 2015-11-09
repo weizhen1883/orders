@@ -1,0 +1,34 @@
+<div class="col-sm-4">
+	<img class="img-responsive" ng-src="{{cuisine.imgUrl}}" alt="Generic placeholder image">
+</div>
+<div class="col-sm-8">
+	<div class="row">
+		<div class="col-sm-6">
+			<a class="menu-title">{{cuisine.name}}</a>
+		</div>
+		<div clss="col-sm-6">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-9">
+			<p class="menu-subtitle">{{cuisine.restrand}}</p>
+		</div>
+		<div clss="col-sm-3">
+			<p class="menu-subtitle">{{cuisine.cal}}&nbsp;Cal</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-9">
+			<p class="menu-price">{{cuisine.price | currency}}</p>
+		</div>
+		<div class="col-sm-3">
+			<a type="button" class="btn btn-success" ng-class="cuisine.className" data-toggle="tab" ng-href="{{cuisine.href}}">
+				Get It
+				<div class="hidden image">{{cuisine.imgUrl}}</div>
+				<div class="hidden name">{{cuisine.name}}</div>
+				<div class="hidden cal">{{cuisine.cal}}</div>
+				<div class="hidden price">{{cuisine.price | currency}}</div>
+			</a>
+		</div>
+	</div>
+</div>
