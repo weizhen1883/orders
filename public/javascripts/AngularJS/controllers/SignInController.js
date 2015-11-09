@@ -1,6 +1,6 @@
 angularApp.controller('SignInController', ['$scope',
 	function($scope) {
-		var ref = new Firebase("https://55-bento.firebaseio.com");
+
 
 		$scope.user = {
 			email: '',
@@ -8,28 +8,54 @@ angularApp.controller('SignInController', ['$scope',
 		};
 
 		$scope.signIn = function() {
-			ref.authWithPassword({
-			  email : $scope.user.email,
-			  password : $scope.user.password
-			}, function(error, authData) {
-			  if (error) {
-			    console.log("Login Failed!", error);
-			  } else {
-			    $('.login-action-hidden').fadeOut(500, function() {
-			    	$('.login-action-hidden').addClass("hidden");
-			    	$('.login-action').fadeIn(500).removeClass('hidden');
-			    });
-			  }
+			$.ajax({
+				type: 'POST',
+				url: "/users/signin",
+				data: {
+					email: $scope.user.email,
+					password: $scope.user.password,
+				},
+				success: function(data) {
+					var result = jQuery.parseJSON(data);
+					if (result.success) {
+						alert("success");
+						$('.login-action-hidden').fadeOut(500, function() {
+							$('.login-action-hidden').addClass("hidden");
+							$('.login-action').fadeIn(500).removeClass('hidden');
+						});
+						$("#displayName").html("Welcome " + result.fullName + "!");
+					} else {
+						alert(result.error);
+					}
+				},
+				error: function(xhr, status, error) {
+					alert("Server got errors");
+				}
 			});
 		};
 
 		$scope.signOut = function() {
-			ref.unauth();
-			$('.login-action').fadeOut(500, function() {
-		    	$('.login-action').addClass("hidden");
-		    	$('.login-action-hidden').fadeIn(500).removeClass('hidden');
-		    });
+			$.ajax({
+				type: 'POST',
+				url: "/users/signout",
+				success: function(data) {
+					var result = jQuery.parseJSON(data);
+					if (result.success) {
+						alert("success");
+						$('.login-action').fadeOut(500, function() {
+							$('.login-action').addClass("hidden");
+							$('.login-action-hidden').fadeIn(500).removeClass('hidden');
+						});
+					} else {
+						alert(result.error);
+					}
+				},
+				error: function(data) {
+					alert("Server got errors");
+				}
+			});
+
 		};
-		
+
 	}
 ]);
