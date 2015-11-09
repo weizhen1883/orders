@@ -15,6 +15,10 @@ var zoneSchema = new Schema({
 		required: true,
 		unique: true
 	},
+	subZone: {
+		type: String,
+		// required: true
+	},
 	description: {
 		type: String,
 		required: true
@@ -61,7 +65,7 @@ var Zone = mongoose.model('Zone', zoneSchema);
 var Menu = mongoose.model('Menu', menuSchema);
 
 /* GET home page. */
-router.get('/', function(req,res){
+router.get('/', function(req, res) {
 	res.render('orders', {
 		title: 'FiftyFive'
 	});
@@ -78,7 +82,7 @@ router.post('/getMenu', function(req, res) {
 	Zone.find({
 		name: zoneName
 	}, function(err, zones) {
-		console.log(zones);
+		// console.log(zones);
 		if (zones.length == 0) {
 			return res.end(JSON.stringify({
 				success: false,
@@ -206,6 +210,69 @@ router.post('/addMenu', function(req, res) {
 	});
 });
 
+router.get('/getZone', function(req, res) {
+	Zone.find(function(err, found_result) {
+		// console.log(found_result);
+		var zones = [];
+		for (var i in found_result) {
+			var zone = {
+				name: found_result[i].name,
+				description: found_result[i].description,
+				subZone: found_result[i].subZone ? found_result[i].subZone : []
+			};
+			zones.push(zone);
+		}
+		return res.end(JSON.stringify({
+			zones: zone
+		}));
+	});
+});
 
+router.post('/addZone', function(req, res) {
+	console.log(req.body.name);
+	if (!req.body.name) {
+		return res.end(JSON.stringify({
+			success: false,
+			error: 'Missing argument zone name.'
+		}));
+	}
+	if (!req.body.description) {
+		return res.end(JSON.stringify({
+			success: false,
+			error: 'Missing argument zone description.'
+		}));
+	}
+	var name = req.body.name;
+	var description = req.body.description;
+	var subZone = req.body.subZone ? req.body.subZone : [];
+
+	Zone.find({
+		name: name
+	}, function(err, found_result) {
+		if (err) throw err;
+		if (found_result.length !== 0) {
+			return res.end(JSON.stringify({
+				success: false,
+				error: 'zone already exists'
+			}));
+		} else {
+			var newZone = new Zone({
+				name: name,
+				description: description,
+				subZone: subZone
+			});
+			newZone.save(function(err, result) {
+				if (err) return res.end(JSON.stringify({
+					success: false,
+					error: err
+				}));
+				console.log('Zone created with id ' + result._id + ' and name ' + result.name);
+				return res.end(JSON.stringify({
+					success: true
+				}));
+			});
+		}
+	});
+})
 
 module.exports = router;
