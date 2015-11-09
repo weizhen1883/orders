@@ -18,12 +18,14 @@ angularApp.controller('SignInController', ['$scope',
 				success: function(data) {
 					var result = jQuery.parseJSON(data);
 					if (result.success) {
-						alert("success");
+						// alert("success");
+						$.cookie('token', result.cookie);
+						$.cookie('name', result.name);
 						$('.login-action-hidden').fadeOut(500, function() {
 							$('.login-action-hidden').addClass("hidden");
 							$('.login-action').fadeIn(500).removeClass('hidden');
 						});
-						$("#displayName").html("Welcome " + result.fullName + "!");
+						$("#displayName").html("Welcome " + result.name + "!");
 					} else {
 						alert(result.error);
 					}
@@ -41,7 +43,7 @@ angularApp.controller('SignInController', ['$scope',
 				success: function(data) {
 					var result = jQuery.parseJSON(data);
 					if (result.success) {
-						alert("success");
+						// alert("success");
 						$('.login-action').fadeOut(500, function() {
 							$('.login-action').addClass("hidden");
 							$('.login-action-hidden').fadeIn(500).removeClass('hidden');

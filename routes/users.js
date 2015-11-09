@@ -89,7 +89,7 @@ router.post('/signup', function(req, res) {
 				if (err) throw err;
 				console.log('User created with id ' + result._id + ' and name ' + result.name);
 				cookieStore.cookie = result._id;
-				console.dir("cookieStore is " + cookieStore);
+				// console.dir("cookieStore is " + cookieStore);
 				return res.end(JSON.stringify({
 					success: true,
 					cookie: cookie
@@ -127,7 +127,21 @@ router.post('/signin', function(req, res) {
 			}));
 		} else {
 			if (passwordHash.verify(password, user[0].password)) {
-				
+				User.update({
+					email: email
+				},{
+					cookie: cookie
+				}, function(err, updated){
+					var old_cookie = user[0].cookie;
+					delete cookieStore.old_cookie;
+					cookieStore.cookie = user[0]._id;
+					// console.log(user[0].name);
+					return res.end(JSON.stringify({
+						success: true,
+						name: user[0].name,
+						cookie: cookie
+					}));
+				})
 			} else {
 				return res.end(JSON.stringify({
 					success: false,
