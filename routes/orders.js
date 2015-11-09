@@ -67,6 +67,12 @@ router.get('/', function(req,res){
 	});
 });
 
+router.get('/addMenuItem', function(req,res){
+	res.render('addMenuItem', {
+		title: 'FiftyFive'
+	});
+});
+
 router.post('/getMenu', function(req, res) {
 	if (!req.body.zone) {
 		return res.end(JSON.stringify({
