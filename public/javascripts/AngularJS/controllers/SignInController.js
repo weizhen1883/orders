@@ -44,6 +44,8 @@ angularApp.controller('SignInController', ['$scope',
 					var result = jQuery.parseJSON(data);
 					if (result.success) {
 						// alert("success");
+						$.removeCookie('name');
+						$.removeCookie('token');
 						$('.login-action').fadeOut(500, function() {
 							$('.login-action').addClass("hidden");
 							$('.login-action-hidden').fadeIn(500).removeClass('hidden');

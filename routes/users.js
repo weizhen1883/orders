@@ -155,20 +155,14 @@ router.post('/signin', function(req, res) {
 
 router.post('/signout', function(req, res) {
 	var cookie = req.cookies.token;
-	console.dir("cookieStore is " + cookieStore);
-	if (cookieStore.cookie) {
+	// console.dir("cookieStore is " + cookieStore);
+	if (cookieStore.cookie) 
 		res.clearCookie()
 		delete cookieStore.cookie;
-		console.dir("cookieStore is " + cookieStore);
+		// console.dir("cookieStore is " + cookieStore);
 		return res.end(JSON.stringify({
 			success: true
 		}))
-	} else {
-		return res.end(JSON.stringify({
-			success: false,
-			error: "User does not have permission to log out"
-		}))
-	}
 })
 
 module.exports = router;
