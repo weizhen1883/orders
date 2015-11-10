@@ -10,7 +10,7 @@ var ObjectId = Schema.ObjectId;
 // create a schema
 var userSchema = new Schema({
 	id: {
-		type: ObjectId,
+		type: ObjectId
 	},
 	email: {
 		type: String,
@@ -32,11 +32,20 @@ var userSchema = new Schema({
 	cookie: {
 		type: String,
 		required: true
+	},
+	avatar: {
+		type: String
+	},
+	address: {
+		type: Array
+			// array of json
+			// {address: String, receiver: String, phone: Number}
 	}
 });
 
 var User = mongoose.model('User', userSchema);
 
+// DONE
 router.post('/signup', function(req, res) {
 	if (!req.body.fullname) {
 		return res.end(JSON.stringify({
@@ -92,6 +101,7 @@ router.post('/signup', function(req, res) {
 				// console.dir("cookieStore is " + cookieStore);
 				return res.end(JSON.stringify({
 					success: true,
+					id: user[0]._id,
 					cookie: cookie
 				}));
 			});
@@ -99,6 +109,7 @@ router.post('/signup', function(req, res) {
 	});
 });
 
+// DONE
 router.post('/signin', function(req, res) {
 	if (!req.body.email) {
 		return res.end(JSON.stringify({
@@ -129,15 +140,16 @@ router.post('/signin', function(req, res) {
 			if (passwordHash.verify(password, user[0].password)) {
 				User.update({
 					email: email
-				},{
+				}, {
 					cookie: cookie
-				}, function(err, updated){
+				}, function(err, updated) {
 					var old_cookie = user[0].cookie;
 					delete cookieStore.old_cookie;
 					cookieStore.cookie = user[0]._id;
 					// console.log(user[0].name);
 					return res.end(JSON.stringify({
 						success: true,
+						id: user[0]._id,
 						name: user[0].name,
 						cookie: cookie
 					}));
@@ -153,16 +165,49 @@ router.post('/signin', function(req, res) {
 
 })
 
-router.post('/signout', function(req, res) {
+// DONE
+router.get('/signout', function(req, res) {
 	var cookie = req.cookies.token;
-	// console.dir("cookieStore is " + cookieStore);
-	if (cookieStore.cookie) 
+	if (cookieStore.cookie) {
 		res.clearCookie()
 		delete cookieStore.cookie;
-		// console.dir("cookieStore is " + cookieStore);
-		return res.end(JSON.stringify({
-			success: true
-		}))
-})
+	}
+	return res.end(JSON.stringify({
+		success: true
+	}))
+});
+
+
+// WAIT FOR TEST IN FRONTEND
+router.get('/getAccount', function(req, res) {
+	var cookie = req.cookies.token;
+	var userId = cookieStore.cookie;
+	User.find({
+		_id: userId
+	}, function(err, found) {
+		if (err) throw err;
+		if (found.length == 0) {
+			return res.end(JSON.stringify({
+				success: false,
+				error: "Did not find certain user"
+			}));
+		} else {
+			return res.end(JSON.stringify({
+				success: true,
+				id: found[0]._id,
+				email: found[0].email,
+				name: found[0].name,
+				phone: found[0].phone,
+				avatar: found[0].avatar ? found[0].avatar : "",
+				address: found[0].address ? found[0].address : []
+			}))
+		}
+	})
+});
+
+// TODO
+router.post('/accountSetting', function(req, res) {
+
+});
 
 module.exports = router;

@@ -1,14 +1,17 @@
 angularApp.controller('MenuController', ['$scope', 'MenuItems', function($scope, MenuItems) {
 	MenuItems.success(function(data) { 
-	    $scope.newEntrees = data.entrees; 
-	    console.log($scope.newEntrees);
+		if (data.success){
+			$scope.menu = data.menus
+		}else{
+			alert(data.error);
+		}
 	});
 
 	$scope.entrees = [
 		{
 			name: 'Dongpo Pork',
 			imgUrl: '/images/menu_pics/dongporou.jpg',
-			restrand: 'Dimming Garden',
+			restaurant: 'Dimming Garden',
 			cal: 1000,
 			price: 12.99,
 			className: 'entrees-submit',
@@ -17,7 +20,7 @@ angularApp.controller('MenuController', ['$scope', 'MenuItems', function($scope,
 		{
 			name: 'Peking Duck',
 			imgUrl: '/images/menu_pics/kaoya.jpg',
-			restrand: 'Dimming Garden',
+			restaurant: 'Dimming Garden',
 			cal: 1200,
 			price: 18.99,
 			className: 'entrees-submit',
@@ -26,7 +29,7 @@ angularApp.controller('MenuController', ['$scope', 'MenuItems', function($scope,
 		{
 			name: 'Mapo Tofu',
 			imgUrl: '/images/menu_pics/mapuodoufu.jpg',
-			restrand: 'Dimming Garden',
+			restaurant: 'Dimming Garden',
 			cal: 900,
 			price: 10.99,
 			className: 'entrees-submit',
@@ -35,7 +38,7 @@ angularApp.controller('MenuController', ['$scope', 'MenuItems', function($scope,
 		{
 			name: 'Lamp',
 			imgUrl: '/images/menu_pics/yangpai.jpg',
-			restrand: 'Dimming Garden',
+			restaurant: 'Dimming Garden',
 			cal: 1000,
 			price: 14.99,
 			className: 'entrees-submit',
@@ -44,7 +47,7 @@ angularApp.controller('MenuController', ['$scope', 'MenuItems', function($scope,
 		{
 			name: 'General Source Chicken',
 			imgUrl: '/images/menu_pics/zuozongji.jpg',
-			restrand: 'Dimming Garden',
+			restaurant: 'Dimming Garden',
 			cal: 950,
 			price: 9.99,
 			className: 'entrees-submit',
@@ -53,7 +56,7 @@ angularApp.controller('MenuController', ['$scope', 'MenuItems', function($scope,
 		{
 			name: 'Chicken',
 			imgUrl: '/images/menu_pics/hongshaoji.jpg',
-			restrand: 'Dimming Garden',
+			restaurant: 'Dimming Garden',
 			cal: 800,
 			price: 11.99,
 			className: 'entrees-submit',
@@ -65,7 +68,7 @@ angularApp.controller('MenuController', ['$scope', 'MenuItems', function($scope,
 		{
 			name: 'Dongpo Pork',
 			imgUrl: '/images/menu_pics/dongporou.jpg',
-			restrand: '',
+			restaurant: '',
 			cal: 1000,
 			price: 12.99,
 			className: 'sides-submit',
@@ -74,7 +77,7 @@ angularApp.controller('MenuController', ['$scope', 'MenuItems', function($scope,
 		{
 			name: 'Peking Duck',
 			imgUrl: '/images/menu_pics/kaoya.jpg',
-			restrand: '',
+			restaurant: '',
 			cal: 1200,
 			price: 18.99,
 			className: 'sides-submit',
@@ -83,7 +86,7 @@ angularApp.controller('MenuController', ['$scope', 'MenuItems', function($scope,
 		{
 			name: 'Mapo Tofu',
 			imgUrl: '/images/menu_pics/mapuodoufu.jpg',
-			restrand: '',
+			restaurant: '',
 			cal: 900,
 			price: 10.99,
 			className: 'sides-submit',
@@ -95,7 +98,7 @@ angularApp.controller('MenuController', ['$scope', 'MenuItems', function($scope,
 		{
 			name: 'General Source Chicken',
 			imgUrl: '/images/menu_pics/zuozongji.jpg',
-			restrand: '',
+			restaurant: '',
 			cal: 950,
 			price: 9.99,
 			className: 'staple-submit',
@@ -104,7 +107,7 @@ angularApp.controller('MenuController', ['$scope', 'MenuItems', function($scope,
 		{
 			name: 'Chicken',
 			imgUrl: '/images/menu_pics/hongshaoji.jpg',
-			restrand: '',
+			restaurant: '',
 			cal: 800,
 			price: 11.99,
 			className: 'staple-submit',
