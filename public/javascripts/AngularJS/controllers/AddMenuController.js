@@ -1,4 +1,9 @@
 angularApp.controller('AddMenuController', ['$scope', '$http', 'MenuThings', function($scope, $http, MenuThings) {
+	$scope.addZone = {
+		name: '',
+		description: ''
+	};
+
 	$scope.addItem = {
 		name: '',
 		type: '',
@@ -9,10 +14,25 @@ angularApp.controller('AddMenuController', ['$scope', '$http', 'MenuThings', fun
 		imgURL: ''
 	};
 
+	$scope.addMenuZoon = function() {
+		$http({
+			method: 'POST',
+			url:'/orders/addZone',
+			data: {
+				name: $scope.addZone.name,
+				description: $scope.addZone.description
+			}
+		}).then(function successCallback(response) {
+			console.log(response);
+		}, function errorCallback(response) {
+			console.log(response);
+		});
+	};
+
 	$scope.addMenuItem = function() {
 		$http({
 			method: 'POST',
-			url: "/orders/addMenu",
+			url: '/orders/addMenu',
 			data: {
 				name: $scope.addItem.name,
 				type: $scope.addItem.type,
@@ -35,4 +55,15 @@ angularApp.controller('AddMenuController', ['$scope', '$http', 'MenuThings', fun
 			}
 		});
 	};
+
+	MenuThings.success(function(data) { 
+		if (data.success){
+			console.log("success: ");
+			console.log(data);
+		}else{
+			console.log("error: ");
+			console.log(data);
+			//alert(data.error);
+		}
+	});
 }]);

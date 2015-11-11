@@ -14,7 +14,7 @@
 		<table style="width:100%" ng-controller="AddMenuController">
 			<tr>
 				<td colspan="2">
-					<form ng-submit="">
+					<form ng-submit="addMenuZoon()">
 						<fieldset style="width:400px">
 							<legend>Add Zone:</legend>
 							name:<br>
@@ -23,11 +23,12 @@
 							description:<br>
 							<textarea cols="50" rows="5" name="zone_description" ng-model="addZone.description"></textarea>
 							<br><br>
-							<input type="submit" value="Submit">
+							<input type="submit" value="Add">
 						</fieldset>
 					</form>
 				</td>
-				<td></td>
+				<td>
+				</td>
 			</tr>
 			<tr>
 				<td>
@@ -55,7 +56,7 @@
 							imgURL:<br>
 							<input type="text" name="imgURL" ng-model="addItem.imgURL">
 							<br><br>
-							<input type="submit" value="Submit">
+							<input type="submit" value="Add">
 						</fieldset>
 					</form>
 				</td>
@@ -78,6 +79,7 @@
 	    <!-- include the angular js controllers js files -->
 	    <script src="/javascripts/AngularJS/controllers/AddMenuController.js"></script>
 	    <!-- include the angular js directives js files -->
+	    <script src="/javascripts/AngularJS/services/AddMenuServices.js"></script>
 	    <!-- include the angular js services js files -->
 	    <!-- include other js files -->
 	</body>
