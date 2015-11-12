@@ -11,35 +11,59 @@
 	</head>
 
 	<body ng-app="angularApp">
-		<div ng-controller="AddMenuController">
-			<form ng-submit="signIn()">
-				<fieldset>
-					<legend>Personal information:</legend>
-					name:<br>
-					<input type="text" name="name" ng-model="item.name">
-					<br>
-					type:<br>
-					<input type="text" name="type" ng-model="item.type">
-					<br>
-					restaurant:<br>
-					<input type="text" name="restaurant" ng-model="item.restaurant">
-					<br>
-					cal:<br>
-					<input type="text" name="cal" ng-model="item.cal">
-					<br>
-					price:<br>
-					<input type="text" name="price" ng-model="item.price">
-					<br>
-					zone:<br>
-					<input type="text" name="zone" ng-model="item.zone">
-					<br>
-					imgURL:<br>
-					<input type="text" name="imgURL" ng-model="item.imgURL">
-					<br><br>
-					<input type="submit" value="Submit">
-				</fieldset>
-			</form>
-		</div>
+		<table style="width:100%" ng-controller="AddMenuController">
+			<tr>
+				<td colspan="2">
+					<form ng-submit="addMenuZoon()">
+						<fieldset style="width:400px">
+							<legend>Add Zone:</legend>
+							name:<br>
+							<input type="text" name="zone_name" ng-model="addZone.name">
+							<br>
+							description:<br>
+							<textarea cols="50" rows="5" name="zone_description" ng-model="addZone.description"></textarea>
+							<br><br>
+							<input type="submit" value="Add">
+						</fieldset>
+					</form>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<form ng-submit="addMenuItem()">
+						<fieldset style="width:200px">
+							<legend>Add Menu Item:</legend>
+							name:<br>
+							<input type="text" name="name" ng-model="addItem.name">
+							<br>
+							type:<br>
+							<input type="text" name="type" ng-model="addItem.type">
+							<br>
+							restaurant:<br>
+							<input type="text" name="restaurant" ng-model="addItem.restaurant">
+							<br>
+							cal:<br>
+							<input type="text" name="cal" ng-model="addItem.cal">
+							<br>
+							price:<br>
+							<input type="text" name="price" ng-model="addItem.price">
+							<br>
+							zone:<br>
+							<input type="text" name="zone" ng-model="addItem.zone">
+							<br>
+							imgURL:<br>
+							<input type="text" name="imgURL" ng-model="addItem.imgURL">
+							<br><br>
+							<input type="submit" value="Add">
+						</fieldset>
+					</form>
+				</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
 
 		<!-- Bootstrap core JavaScript
 	    ================================================== -->
@@ -48,9 +72,14 @@
 	    <!-- Latest compiled and minified JavaScript -->
 	    <!-- Custom template scripts -->
 	  	<!-- Lastest version of angular.js -->
+	  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-cookies.js"></script>
 	  	<!-- include the angular js files -->
+	  	<script src="/javascripts/AngularJS/angularApp.js"></script>
 	    <!-- include the angular js controllers js files -->
+	    <script src="/javascripts/AngularJS/controllers/AddMenuController.js"></script>
 	    <!-- include the angular js directives js files -->
+	    <script src="/javascripts/AngularJS/services/AddMenuServices.js"></script>
 	    <!-- include the angular js services js files -->
 	    <!-- include other js files -->
 	</body>
