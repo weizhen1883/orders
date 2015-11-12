@@ -45,6 +45,13 @@ var userSchema = new Schema({
 
 var User = mongoose.model('User', userSchema);
 
+User.find(function(err, user) {
+  if (err) throw err;
+  for (var i in user) {
+    cookieStore[user[i].cookie] = user[i]._id;
+  }
+});
+
 // DONE
 router.post('/signup', function(req, res) {
 	if (!req.body.fullname) {
@@ -168,6 +175,7 @@ router.post('/signin', function(req, res) {
 // DONE
 router.get('/signout', function(req, res) {
 	var cookie = req.cookies.token;
+	console.log("cookie");
 	if (cookieStore.cookie) {
 		res.clearCookie()
 		delete cookieStore.cookie;

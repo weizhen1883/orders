@@ -38,7 +38,7 @@ angularApp.controller('SignInController', ['$scope',
 
 		$scope.signOut = function() {
 			$.ajax({
-				type: 'POST',
+				type: 'GET',
 				url: "/users/signout",
 				success: function(data) {
 					var result = jQuery.parseJSON(data);

@@ -80,7 +80,7 @@ var Order = mongoose.model('Order', orderSchema);
 
 /* GET home page. */
 router.get('/', function(req, res) {
-	res.render('index', {
+	res.render('orders', {
 		title: 'FiftyFive'
 	});
 });
@@ -129,6 +129,7 @@ router.post('/getMenu', function(req, res) {
 					menus.push(menu);
 				}
 				return res.end(JSON.stringify({
+					success: true,
 					menus: menus
 				}));
 			});
@@ -325,6 +326,7 @@ router.post('/getZone', function(req, res) {
 			zones.push(zone);
 		}
 		return res.end(JSON.stringify({
+			success: true,
 			zones: zones
 		}));
 	});
@@ -457,6 +459,7 @@ router.get('/getOrder', function(req, res) {
 			orderes.push(order);
 		}
 		return res.end(JSON.stringify({
+			success: true,
 			orders: order
 		}));
 	});
