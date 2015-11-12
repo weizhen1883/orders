@@ -4,6 +4,10 @@ angularApp.controller('AddMenuController', ['$scope', '$http', 'MenuThings', fun
 		description: ''
 	};
 
+	$scope.deleteZone = {
+		id: ''
+	}
+
 	$scope.addItem = {
 		name: '',
 		type: '',
@@ -14,7 +18,7 @@ angularApp.controller('AddMenuController', ['$scope', '$http', 'MenuThings', fun
 		imgURL: ''
 	};
 
-	$scope.addMenuZoon = function() {
+	$scope.addMenuZone = function() {
 		$http({
 			method: 'POST',
 			url:'/orders/addZone',
@@ -28,6 +32,20 @@ angularApp.controller('AddMenuController', ['$scope', '$http', 'MenuThings', fun
 			console.log(response);
 		});
 	};
+
+	$scope.deleteMenuZone = function() {
+		// $http({
+		// 	method: 'POST',
+		// 	url: '/orders/deleteZone',
+		// 	data: {
+		// 		id: $scope.deleteZone.id
+		// 	}
+		// }).then(function successCallback(response) {
+		// 	console.log(response);
+		// }, function errorCallback(response) {
+		// 	console.log(response);
+		// });
+	}
 
 	$scope.addMenuItem = function() {
 		$http({
@@ -60,9 +78,11 @@ angularApp.controller('AddMenuController', ['$scope', '$http', 'MenuThings', fun
 		if (data.success){
 			console.log("success: ");
 			console.log(data);
+			$scope.zones = data.zones;
 		}else{
 			console.log("error: ");
 			console.log(data);
+			$scope.zones = data.zones;
 			//alert(data.error);
 		}
 	});

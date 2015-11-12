@@ -14,7 +14,7 @@
 		<table style="width:100%" ng-controller="AddMenuController">
 			<tr>
 				<td colspan="2">
-					<form ng-submit="addMenuZoon()">
+					<form ng-submit="addMenuZone()">
 						<fieldset style="width:400px">
 							<legend>Add Zone:</legend>
 							name:<br>
@@ -28,6 +28,16 @@
 					</form>
 				</td>
 				<td>
+					<form ng-submit="deleteMenuZone()">
+						<fieldset style="width:400px">
+							<legend>Delete Zone:</legend>
+							<label ng-repeat="zone in zones">
+								<input type="checkbox" checklist-value="zone.id" checklist-model="deleteZone.id">{{zone.name}}<br>
+							</label>
+							<br><br>
+							<input type="submit" value="Delete">
+						</fieldset>
+					</form>
 				</td>
 			</tr>
 			<tr>
@@ -82,5 +92,6 @@
 	    <script src="/javascripts/AngularJS/services/AddMenuServices.js"></script>
 	    <!-- include the angular js services js files -->
 	    <!-- include other js files -->
+	    <script src="/javascripts/AngularJS/vendor/checklist-model.js"></script>
 	</body>
 </html>
