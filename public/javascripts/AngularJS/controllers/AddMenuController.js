@@ -1,4 +1,5 @@
-angularApp.controller('AddMenuController', ['$scope', '$http', 'MenuThings', function($scope, $http, MenuThings) {
+angularApp.controller('AddMenuController', ['$scope', '$http', 'MenuZones',
+function($scope, $http, MenuZones) {
 	$scope.addZone = {
 		name: '',
 		description: ''
@@ -6,7 +7,7 @@ angularApp.controller('AddMenuController', ['$scope', '$http', 'MenuThings', fun
 
 	$scope.deleteZone = {
 		id: ''
-	}
+	};
 
 	$scope.addItem = {
 		name: '',
@@ -27,25 +28,33 @@ angularApp.controller('AddMenuController', ['$scope', '$http', 'MenuThings', fun
 				description: $scope.addZone.description
 			}
 		}).then(function successCallback(response) {
+			console.log("success");
 			console.log(response);
+			location.reload();
 		}, function errorCallback(response) {
+			console.log("error");
 			console.log(response);
 		});
 	};
 
 	$scope.deleteMenuZone = function() {
-		// $http({
-		// 	method: 'POST',
-		// 	url: '/orders/deleteZone',
-		// 	data: {
-		// 		id: $scope.deleteZone.id
-		// 	}
-		// }).then(function successCallback(response) {
-		// 	console.log(response);
-		// }, function errorCallback(response) {
-		// 	console.log(response);
-		// });
-	}
+		for (var i in $scope.deleteZone.id) {
+			$http({
+				method: 'POST',
+				url: '/orders/deleteZone',
+				data: {
+					id: $scope.deleteZone.id[i]
+				}
+			}).then(function successCallback(response) {
+				console.log("success");
+				console.log(response);
+				location.reload();
+			}, function errorCallback(response) {
+				console.log("error");
+				console.log(response);
+			});
+		}
+	};
 
 	$scope.addMenuItem = function() {
 		$http({
@@ -59,22 +68,20 @@ angularApp.controller('AddMenuController', ['$scope', '$http', 'MenuThings', fun
 				price: $scope.addItem.price,
 				zone: $scope.addItem.zone,
 				imgURL: $scope.addItem.imgURL
-			},
-			success: function(data) {
-				var result = jQuery.parseJSON(data);
-				if (result.success) {
-					// alert("success");
-				} else {
-					alert(result.error);
-				}
-			},
-			error: function(xhr, status, error) {
-				alert("Server got errors");
 			}
+		}).then(function successCallback(response) {
+			var result = jQuery.parseJSON(response);
+			if (result.success) {
+				// alert("success");
+			} else {
+				alert(result.error);
+			}
+		}, function errorCallback(response) {
+			alert("Server got errors");
 		});
 	};
 
-	MenuThings.success(function(data) { 
+	MenuZones.success(function(data) { 
 		if (data.success){
 			console.log("success: ");
 			console.log(data);
@@ -86,4 +93,5 @@ angularApp.controller('AddMenuController', ['$scope', '$http', 'MenuThings', fun
 			//alert(data.error);
 		}
 	});
+
 }]);
